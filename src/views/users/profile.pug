@@ -1,0 +1,13 @@
+extends ../base.pug
+include ../mixins/video
+
+block content
+    div.profile__data
+        if user.thumbnail !== ""
+            img.avtar(src="/"+user.thumbnail)
+        h3=user.name
+    div.home__videos
+        each video in user.videos
+            +video(video)
+        else 
+            li sorry nothing found    

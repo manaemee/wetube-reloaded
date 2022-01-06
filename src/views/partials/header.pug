@@ -1,0 +1,26 @@
+header
+    a(href="/").header__logo
+        i.fab.fa-youtube
+    nav 
+        ul
+            li 
+                a(href="/search")
+                    i.fas.fa-search        
+            if !loggedIn
+                li 
+                    a(href="/login").header__btn login                 
+                li 
+                    a(href="/join").header__btn join
+            else
+                li  
+                    a(href=`/users/${loggedInUser._id}`)
+                        if loggedInUser.thumbnail === ""
+                            span.header-kakao__thumbnail 🎃
+                        else 
+                            img.header__avatar(src="/" + loggedInUser.thumbnail)
+                li
+                    a(href="/users/edit") Edit Profile  
+                li 
+                    a(href="/videos/upload") upload
+                li      
+                    a(href="/users/logout") Log Out  

@@ -1,0 +1,16 @@
+mixin video(video)
+    div.video-mixin
+        div.video-mixin_thumb
+        div.video-info
+            if video.owner.thumbnail !== ""
+                img.video-left__img(src="/" + video.owner.thumbnail)
+            div.video-right
+                h4.video-mixin_title
+                    a(href=`/videos/${video.id}`)=video.title
+                div.video-mixin__data    
+                    p=video.description
+                div.video-mixin__meta
+                    span created by #{video.owner.username}, 
+                    span 조회수 #{video.meta.views}회 
+                    div=video.createdAt
+        hr

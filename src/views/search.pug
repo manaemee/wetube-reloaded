@@ -1,0 +1,13 @@
+extends base.pug
+include mixins/video
+block content 
+    form(method="POST").search__form
+        input(placeholder="Search of title", type="text", name="keyword")
+        button
+            i.fas.fa-search
+    if videos   
+        div.home__videos
+            each video in videos
+                +video(video)
+    if error 
+        p=error        
