@@ -80,7 +80,7 @@ const handleMouseLeave = () => {
         videoControls.classList.remove("showing");
     }, 3000);
 }
-const handleVideoClick = () => {
+const VideoClickk = () => {
     if(video.paused){
         video.play();
          }else{
@@ -125,7 +125,7 @@ volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadedmetadata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 timeline.addEventListener("input", handleTimeLineChange);
-video.addEventListener("click", handleVideoClick);
+video.addEventListener("click", VideoClick);
 fullScreenBtn.addEventListener("click", handleFullscreen);
 videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handleMouseLeave);
