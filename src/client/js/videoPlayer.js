@@ -80,7 +80,7 @@ const handleMouseLeave = () => {
         videoControls.classList.remove("showing");
     }, 3000);
 }
-const VideoClickk = () => {
+const handleVideoClick = () => {
     if(video.paused){
         video.play();
          }else{
