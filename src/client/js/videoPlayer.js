@@ -28,13 +28,7 @@ const handlePlayClick = () => {
         playBtnIcon.classList = "fas fa-play";
     }
 }
-const handleClickPlay = () => {
-    if(video.paused){
-        video.play();
-         }else{
-        video.pause();
-         };
-};
+
 const handleMute = () => {
     if(video.muted){
         video.muted =false;
@@ -86,6 +80,13 @@ const handleMouseLeave = () => {
         videoControls.classList.remove("showing");
     }, 3000);
 }
+const handleVideoClick = () => {
+    if(video.paused){
+        video.play();
+         }else{
+        video.pause();
+         };
+};
 const handleFullscreen = () =>{
     const fullscreen = document.fullscreenElement;
     if(fullscreen){
@@ -119,11 +120,12 @@ playBtnIcon.classList = "fas fa-play";
 
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMute);
-video.addEventListener("click", handleClickPlay);
+
 volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadedmetadata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 timeline.addEventListener("input", handleTimeLineChange);
+video.addEventListener("click", handleVideoClick);
 fullScreenBtn.addEventListener("click", handleFullscreen);
 videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handleMouseLeave);
