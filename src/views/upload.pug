@@ -1,6 +1,9 @@
 extends base.pug
 
-block content 
+block content
+    div 
+        video#preview
+        button#startBtn Start record
     if errorMessage 
         div=errorMessage
         small Check #{path}
@@ -11,3 +14,6 @@ block content
         input(placeholder="Description", required, type="text", name="description" maxLength: 100)
         input(placeholder="Hashtags, separated by comma.", required, type="text", name="hashtags")
         input(type="submit", value="Upload Video")
+
+block scripts 
+    script(src="/assets/js/recorder.js") 

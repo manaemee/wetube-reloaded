@@ -8,11 +8,13 @@ import { localsMiddleware } from "./middlewares";
 import globalRouter from "./routes/globalRouter";
 import videoRouter from "./routes/videoRouter";
 import userRouter from "./routes/userRouter";
+import apiRouter from "./routes/apiRouter";
 
 const app = express();
 
 app.set("views", process.cwd() + '/src/views');
 app.set("view engine", "pug");
+app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true })) 
 app.use(session({
     secret:process.env.COOKIE_SECRET,
@@ -26,8 +28,8 @@ app.use(localsMiddleware)
 app.use("/", globalRouter);//라우터 실제로 쓰는 법 어플리케이션 준비
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
+app.use("/api", apiRouter);
 
 
-app.use(logger("dev"));
 app.listen(3000, ()=> console.log("server listenting on port 3000"));
 

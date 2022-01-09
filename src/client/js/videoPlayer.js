@@ -54,9 +54,8 @@ totalTime.innerText = formatTime(Math.floor(video.duration));
 timeline.max = Math.floor(video.duration);
 };
 const handleTimeUpdate = () => {
-
 currentTime.innerText = formatTime(Math.floor(video.currentTime));
-timeline.value = Math.floor(video.currentTime);
+timeline.value = video.currentTime;
 };
 const handleTimeLineChange = (event) => {
 const {value} = event.target;
@@ -117,13 +116,19 @@ playBtnIcon.classList = "fas fa-play";
  };
 }
 };
-
+const handleEnded = () => {
+    playBtnIcon.classList = "fas fa-play";
+    const { id } = videoContainer.dataset;
+    fetch(`/api/videos/${id}/view`, {
+      method: "POST",
+    });
+  };
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMute);
-
 volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadedmetadata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
+video.addEventListener("ended", handleEnded);
 timeline.addEventListener("input", handleTimeLineChange);
 video.addEventListener("click", handleVideoClick);
 fullScreenBtn.addEventListener("click", handleFullscreen);
