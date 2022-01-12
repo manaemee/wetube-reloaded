@@ -1,4 +1,5 @@
 import "dotenv/config";
+import "regenerator-runtime";
 import "./db";
 import session from "express-session";
 import express from "express";

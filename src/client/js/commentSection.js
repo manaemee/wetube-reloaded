@@ -51,7 +51,6 @@ addComment(text, newCommentId);
 }
 };
 
-
 for (const deleteBtn of deleteBtns) {
     deleteBtn.addEventListener('click', handleDelete);
   }
