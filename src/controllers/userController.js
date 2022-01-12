@@ -170,6 +170,10 @@ if(sessionUsername !== username){
     
    
 export const getChangePassword = (req, res) =>{
+    if(req.session.user.socialOnly === true){
+        req.flash("error", "You don't have password.");
+        return res.redirect("/");
+    }
 return res.render("users/change-password",{pageTitle:"change-password"})
 }    
 export const postChangePassword = async (req, res) =>{
@@ -195,6 +199,7 @@ export const postChangePassword = async (req, res) =>{
         });
     }
     user.password = newPassword;
+    req.flash("info", "Password updated!");
     await user.save();
     
     return res.redirect("/")
@@ -213,7 +218,9 @@ export const myProfile = async (req, res) =>{
     return res.render("users/profile", {pageTitle:user.name, user});
 }
 export const logout = (req, res) => {
-    req.session.destroy();
+    req.session.user= null;
+    req.session.loggedIn = false; 
+    req.flash("info", "Bye Bye");
     return res.redirect("/");
 }
 

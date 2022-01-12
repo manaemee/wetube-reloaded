@@ -105,17 +105,7 @@ document.onfullscreenchange = function () {
         fullScreenIcon.classList = "fas fa-expand";
     };
   };
-const handleSpaceKey = (event) => {
-if(event.keyCode === 32){
- if(video.paused){
-video.play();
-playBtnIcon.classList = "fas fa-pause";
- }else{
-video.pause();
-playBtnIcon.classList = "fas fa-play";
- };
-}
-};
+
 const handleEnded = () => {
     playBtnIcon.classList = "fas fa-play";
     const { id } = videoContainer.dataset;
@@ -134,4 +124,4 @@ video.addEventListener("click", handleVideoClick);
 fullScreenBtn.addEventListener("click", handleFullscreen);
 videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handleMouseLeave);
-window.addEventListener("keydown", handleSpaceKey);
+

@@ -1,3 +1,5 @@
+include mixins/message
+
 doctype html 
 html(lang="ko")
     head
@@ -6,6 +8,10 @@ html(lang="ko")
         link(rel="stylesheet" href="/assets/css/styles.css")
         link(rel="shortcut icon" href="#")
     body
+        if messages.error
+            +message(messages.error)
+        if messages.info
+            +message(messages.info)  
         include partials/header                       
         main
             block content

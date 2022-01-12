@@ -9,13 +9,14 @@
   }
   .video-info {
     display: flex;
-    justify-content: space-around;
+    margin-top: 30px;
     align-items: flex-start;
   }
   .video-left__img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    margin-right: 20px;
   }
   .video-mixin_title {
     font-size: 15px;

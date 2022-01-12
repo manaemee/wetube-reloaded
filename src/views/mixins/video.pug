@@ -1,6 +1,9 @@
 mixin video(video)
     div.video-mixin
-        div.video-mixin_thumb
+        if video.thumbUrl
+            div.video-mixin_thumb(style=`background-image:url(${video.thumbUrl});background-size:cover;background-position:center;`)
+        else 
+            div.video-mixin_thumb   
         div.video-info
             if video.owner.thumbnail !== ""
                 img.video-left__img(src="/" + video.owner.thumbnail)
@@ -13,4 +16,3 @@ mixin video(video)
                     span created by #{video.owner.username}, 
                     span 조회수 #{video.meta.views}회 
                     div=video.createdAt
-        hr

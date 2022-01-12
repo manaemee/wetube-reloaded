@@ -3,6 +3,7 @@ import moment from "moment";
 const videoSchema = new mongoose.Schema({
     title: {type:String, required:true, uppercase:true, trim: true, minlength: 5},
     fileUrl : {type: String, required:true},
+    thumbUrl: { type: String },
     description: {type:String, required:true, trim: true, maxLength: 100},
     createdAt: {
         type:String,
@@ -17,6 +18,7 @@ const videoSchema = new mongoose.Schema({
         views: {type:Number, default:0, required: true},
         rating: {type:Number, default:0, required: true},
     },
+    comments:[{type:mongoose.Schema.Types.ObjectId, ref:"Comment"}],
     owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
 }); 
 videoSchema.static("formatHashtags", function(hashtags){
