@@ -72,7 +72,7 @@ export const startKaKaoLogin = (req, res) => {
 const config ={
     response_type:"code",
     client_id:"aec21ffd242df9ad550bd3020ee6b200",
-    redirect_uri:"http://localhost:3000/users/github/callback"
+    redirect_uri:"https://shetube-reloaded.herokuapp.com/users/github/callback"
 }    
 const params = new URLSearchParams(config).toString();
 
