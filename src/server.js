@@ -1,5 +1,5 @@
-import "dotenv/config";
 import "regenerator-runtime";
+import "dotenv/config";
 import "./db";
 import session from "express-session";
 import express from "express";
@@ -42,5 +42,5 @@ app.use("/videos", videoRouter);
 app.use("/api", apiRouter);
 
 
-app.listen(3000, ()=> console.log("server listenting on port 3000"));
+app.listen(process.env.PORT || 3000, ()=> console.log("server listenting on port 3000"));
 
