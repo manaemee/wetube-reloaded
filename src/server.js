@@ -41,5 +41,5 @@ app.use("/videos", videoRouter);
 app.use("/api", apiRouter);
 
 
-app.listen(3000, ()=> console.log("server listenting on port 3000"));
+app.listen(process.env.PORT || 3000, ()=> console.log("server listenting on port 3000"));
 
