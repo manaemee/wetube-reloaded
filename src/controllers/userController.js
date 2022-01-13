@@ -132,7 +132,6 @@ const {
       body: {email, username},
       file,
     } = req;
-  
 const Exists= await User.findOne( { username, email });
 
 if(Exists){

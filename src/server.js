@@ -15,6 +15,7 @@ import apiRouter from "./routes/apiRouter";
 const app = express();
 
 app.set("views", process.cwd() + '/src/views');
+
 app.set("view engine", "pug");
 app.use(flash());
 app.use(logger("dev"));
@@ -41,5 +42,5 @@ app.use("/videos", videoRouter);
 app.use("/api", apiRouter);
 
 
-app.listen(process.env.PORT || 3000, ()=> console.log("server listenting on port 3000"));
+app.listen(3000, ()=> console.log("server listenting on port 3000"));
 
