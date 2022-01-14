@@ -17,7 +17,7 @@ header
                         if loggedInUser.thumbnail === ""
                             span.header-kakao__thumbnail 😍
                         else 
-                            img.header__avatar(src="/" + loggedInUser.thumbnail)
+                            img.header__avatar(src=loggedInUser.thumbnail)
                 li
                     a(href="/users/edit") Edit Profile  
                 li 

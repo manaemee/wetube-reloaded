@@ -46,8 +46,8 @@ const { title, description, hashtags } = req.body;
 try{
   const newVideo = await Video.create({
     title,  
-    fileUrl:files.video[0].path,
-    thumbUrl: files.thumb ? files.thumb[0].path : "",
+    fileUrl:files.video[0].location,
+    thumbUrl: files.thumb ? files.thumb[0].location : "",
     description,
     hashtags: Video.formatHashtags(hashtags),
     meta: {

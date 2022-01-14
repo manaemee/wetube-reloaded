@@ -1,4 +1,3 @@
-import e from "express";
 import multer from "multer";
 import multerS3 from "multer-s3";
 import aws from "aws-sdk";
@@ -14,7 +13,7 @@ const s3 = new aws.S3({
 const multerUploader = multerS3({
   s3:s3,
   bucket: 'mantube',
-  acl: "public-read"
+  acl: "public-read-write" ,
 })
 export const localsMiddleware = (req, res, next) => {
   res.locals.loggedIn = req.session.loggedIn;
@@ -41,7 +40,8 @@ export const publiOnlyMiddleware = (req, res, next) =>{
   }
 };
 
-export const avatarUpload = multer({dest:"uploads/avatars", 
+export const avatarUpload = multer({
+
 dest: "uploads/avatars/",
 limits:{
   fileSize:30000000,
@@ -49,7 +49,8 @@ limits:{
 storage: multerUploader
 })
 
-export const videoUpload = multer({dest:"uploads/videos/", 
+export const videoUpload = multer({
+ 
 dest:"uploads/videos/",
 limits:{
 fileSize:10074035,

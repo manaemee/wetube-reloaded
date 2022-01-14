@@ -132,11 +132,12 @@ const {
       body: {email, username},
       file,
     } = req;
+    console.log(file);
 const Exists= await User.findOne( { username, email });
 
 if(Exists){
     const user = await User.findByIdAndUpdate(_id, {
-        thumbnail: file ? file.path : thumbnail,
+        thumbnail: file ? file.location : thumbnail,
       },
       { new: true }
       );     
